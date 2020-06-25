@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'opencart:edit_category_check' %}" method="POST">
+    {% csrf_token %}
+    
+    {% for field in fields %}
+        <label for="{{ field }}">{{ field }}</label>
+
+        <input type="text" name="{{ field }}">
+        <input type="hidden" name="id" value="{{ current_obj.id }}">
+        <br>
+    {% endfor %}
+    <input type="submit">
+</form>
+
+<!-- <table>
+    <thead>
+        <th>*cehckbox*</td>
+        <th>Category name</td>
+        <th>Edit</td>
+    </thead>
+    {% for c in categories %}
+    <tr>
+        <td>checkbox</td>
+        <td>c</td>
+        <td>edit</td>
+    </tr>
+    {% endfor %}
+</table> -->
+
+
+
+
+{% endblock %}

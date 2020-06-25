@@ -1,0 +1,33 @@
+{% extends "header.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+
+{% if request.session.user_id  %}
+{% else %}
+    <h1><a href="{% url 'registration:login' %}">You must sign in to enter</a></h1>
+{% endif %}
+
+<a href="{% url 'opencart:create_category' %}">создать новую категорию</a>
+
+<table>
+    <thead>
+        <th>*cehckbox*</td>
+        <th>Category name</td>
+        <th>Edit</td>
+    </thead>
+    {% for c in categories %}
+        <tr>
+            <td>checkbox</td>
+            <td>{{ c.name }}</td>
+            <td><a href="{% url 'opencart:edit_category' c.id %}">Edit</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+
+
+
+{% endblock %}
