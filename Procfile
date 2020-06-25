@@ -1,1 +1,1 @@
-web: gunicorn browserapi.wsgi
+web: gunicorn admin_page.wsgi
