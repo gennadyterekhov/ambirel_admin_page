@@ -42,11 +42,13 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
+              <a class="nav-link" href="/admin/">Default admin page</a>
+            </li>
+            <li class="nav-item">
               {% if request.session.user_id %}
                 <div class="container">
                   <div class="row">
-                    <div class="col"><a class="nav-link" href="/admin/">Default</a></div>
-                    <!-- <div class="col">Logged in as: {{ user }} |</div> -->
+                    
                     <div class="col"><a class="nav-link" href="{% url 'registration:logout' %}">Logout</a></div>
                   </div>
                 </div>
