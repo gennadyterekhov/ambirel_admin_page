@@ -9,7 +9,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete='CASCADE')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=256)
     model_name = models.CharField(max_length=256)
     price = models.DecimalField(decimal_places=2, max_digits=10)
@@ -34,7 +34,7 @@ class AttributeGroup(models.Model):
 
 class Attribute(models.Model):
     name = models.CharField(max_length=256)
-    attribute_group = models.ForeignKey(AttributeGroup, on_delete='CASCADE')
+    attribute_group = models.ForeignKey(AttributeGroup, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.name
